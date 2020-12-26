@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -82,3 +82,5 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+
+export default withRouter(LoginForm);
