@@ -11,7 +11,6 @@ class Profile extends React.Component {
     }
     
     componentDidMount() {
-        console.log(this.props.currentUser.id)
         this.props.fetchUserTweets(this.props.currentUser.id);
     }
 
