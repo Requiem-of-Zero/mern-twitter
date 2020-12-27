@@ -8,13 +8,19 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
+  Object.freeze(state);
+  let nextState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return {
-        ...state,
-        isAuthenticated: !!action.currentUser,
-        user: action.currentUser
-      };
+      const { isAuthenticated, user} = nextState
+      isAuthenticated = !!action.currentUser,
+      user = action.currentUser
+      return nextState
+      // return {
+      //   ...nextState,
+      //   isAuthenticated: !!action.currentUser,
+      //   user: action.currentUser
+      // };
     case RECEIVE_USER_LOGOUT:
       return {
         isAuthenticated: false,
@@ -23,7 +29,7 @@ export default function(state = initialState, action) {
     case RECEIVE_USER_SIGN_IN:
       return {
         ...state,
-        isSignedIn: true
+        isAuthenticated: true
       }
     default:
       return state;
