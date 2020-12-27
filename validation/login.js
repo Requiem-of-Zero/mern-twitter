@@ -7,7 +7,7 @@ module.exports = function validateLoginInput(data) {
   data.handle = validText(data.handle) ? data.handle : '';
   data.password = validText(data.password) ? data.password : '';
 
-  if (!Validator.isLength(data.handle, {min: 5, max: 15})) {
+  if (!Validator.isLength(data.handle, {min: 2, max: 15})) {
     errors.handle = 'Username is invalid.';
   }
 
